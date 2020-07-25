@@ -17,3 +17,15 @@ function addLink(){
         urlOutput.innerHTML = url;
     })
 }
+
+
+chrome.tabs.executeScript(
+    {
+        code: "window.getSelection().toString();"
+    }, function(selection){
+        console.log(selection[0]);
+        if(selection [0].length > 0){
+            document.getElementById('highlighted').value = selection[0]
+        }
+    }
+)

@@ -12,10 +12,16 @@
         "default_icon": "snipitlogo.png",
         "default_popup": "popup.html"
     },
-
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["/javascript/popup.js"]
+        }
+      ],
     "permissions": [
         "storage",
         "tabs",
-        "bookmarks"
+        "bookmarks",
+        "activeTab" 
     ]
 }
