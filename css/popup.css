@@ -1,0 +1,8 @@
+.test {
+    color: purple;
+}
+
+* {
+    font-family: thickfont;
+    src: url(/fonts/bloggersans_bold.ttf);
+}

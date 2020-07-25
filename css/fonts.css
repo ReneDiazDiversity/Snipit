@@ -1,0 +1,9 @@
+@font-face{
+    font-family: thickfont;
+    src: url(/fonts/bloggersans_bold.ttf);
+  }
+
+@font-face{
+    font-family: thinfont;
+    src: url(/fonts/bloggersans.ttf);
+}
