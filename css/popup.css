@@ -6,3 +6,8 @@
     font-family: thickfont;
     src: url(/fonts/bloggersans_bold.ttf);
 }
+
+body {
+    width: 200px;
+    height: 100px;
+}
