@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "SnipIt",
+    "version": "1.0",
+    "description": "No more messy and confusing bookmarks",
+    "icons": {
+        "128": "snipitlogo.png",
+        "48": "snipitlogo.png",
+        "16": "snipitlogo.png"
+    },
+    "browser_action": {
+        "default_icon": "snipitlogo.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "storage"
+    ]
+}
