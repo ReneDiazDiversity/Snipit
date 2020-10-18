@@ -1,0 +1,47 @@
+body{
+    height: 500px;
+    width: 300px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+html,body {
+    font-family: 'Jost', serif;
+    background: rgb(255, 255, 255);
+    overflow-x: hidden; 
+    overflow-y: scroll;    
+}
+body *{
+    margin-top: 40px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.9s cubic-bezier(0,0,0,1.39);
+    color: #5162ff;
+    box-shadow: inset 0px -3px 0 rgb(81, 98, 255); 
+}
+a:visited { text-decoration: none; color:rgb(81, 98, 255); }
+a:hover { text-decoration: none; color:rgb(81, 98, 255); }
+a:focus { text-decoration: none; color:rgb(81, 98, 255); }
+a:hover, a:active {
+    transition: all 0.2s cubic-bezier(.65,0,.62,1.39);
+    background-size: 0px 50px;
+    box-shadow: inset 0px -10px 0 rgba(81, 98, 255, 0.349); 
+}
+
+img {
+    width:100%;
+}
+
+p{
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(4,15,25);
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+
