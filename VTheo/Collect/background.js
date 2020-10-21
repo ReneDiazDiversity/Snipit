@@ -1,4 +1,4 @@
-
+//https://github.com/chaosifier/TubeMark
 
 function MyGenericClick(info, tab){
     console.log("Clicked on page:", info, tab)
@@ -16,14 +16,13 @@ function MyQuoteClick(info, tab){
     console.log("Clicked a quote",info, tab)
 
     localStorage["quotes"] = info.selectionText;
-    
 }
 
 
 
 // A function to use as callback
 function doStuffWithDom(domContent) {
-    console.log('I received the following DOM content:\n' + domContent);
+    console.log('I received the following DOM content:\n' + domContent.getCurrentTime());
 }
 
 // When the browser-action button is clicked...
