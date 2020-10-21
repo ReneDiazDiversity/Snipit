@@ -6,8 +6,6 @@ function MyGenericClick(info, tab){
     localStorage["pages"] = info.pageUrl;
 }
 
-
-
 function MyImageClick(info, tab){
     console.log("Clicked an image",info, tab)
     
@@ -21,6 +19,22 @@ function MyQuoteClick(info, tab){
     
 }
 
+
+
+// A function to use as callback
+function doStuffWithDom(domContent) {
+    console.log('I received the following DOM content:\n' + domContent);
+}
+
+// When the browser-action button is clicked...
+
+
+chrome.commands.onCommand.addListener(function (command, tab) {
+    if (command === "save"){
+        console.log(tab)
+        chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
+    }
+})
 
 chrome.contextMenus.create({
     "title": "Collect page",
