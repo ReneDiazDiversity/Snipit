@@ -1,6 +1,6 @@
 {
     "name": "Collect",
-    "description": "Shows a menu item",
+    "description": "collect some contents",
     "version": "0.1.0",
     "icons": {  "16": "/icon/icon16.png",
                 "48": "/icon/icon48.png",
