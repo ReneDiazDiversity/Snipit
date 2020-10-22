@@ -1,5 +1,25 @@
 //https://github.com/chaosifier/TubeMark
 
+
+// A function to use as callback
+function doStuffWithDom(domContent) {
+    console.log('I received the following DOM content:\n' + domContent);
+}
+
+// When the browser-action button is clicked...
+
+
+chrome.commands.onCommand.addListener(function (command, tab) {
+    if (command === "save"){
+        //console.log(tab)
+        chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
+    }
+})
+
+
+
+
+
 function MyGenericClick(info, tab){
     console.log("Clicked on page:", info, tab)
 
@@ -20,20 +40,7 @@ function MyQuoteClick(info, tab){
 
 
 
-// A function to use as callback
-function doStuffWithDom(domContent) {
-    console.log('I received the following DOM content:\n' + domContent.getCurrentTime());
-}
 
-// When the browser-action button is clicked...
-
-
-chrome.commands.onCommand.addListener(function (command, tab) {
-    if (command === "save"){
-        console.log(tab)
-        chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
-    }
-})
 
 chrome.contextMenus.create({
     "title": "Collect page",
