@@ -4,6 +4,7 @@
 // A function to use as callback
 function doStuffWithDom(domContent) {
     console.log('I received the following DOM content:\n' + domContent);
+    localStorage["time"] = domContent;
 }
 
 // When the browser-action button is clicked...

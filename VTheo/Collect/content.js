@@ -9,7 +9,9 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
         //sendResponse(document.PlayerState)
         //sendResponse(document.all[0].outerHTML);
         console.log('coucou')
-        performBookmarkIconClickAction();
+        document.getElementsByClassName("video-stream")[0].pause();
+        console.log(document.getElementsByClassName("video-stream")[0].currentTime);
+        sendResponse(document.getElementsByClassName("video-stream")[0].currentTime);
        }
     }
 );
@@ -19,8 +21,9 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
 
 function performBookmarkIconClickAction() {
     document.getElementsByClassName("video-stream")[0].pause();
-    extractInfoFromCurrentVideo();
-  }
+    console.log(document.getElementsByClassName("video-stream")[0].currentTime);
+    sendResponse(document.getElementsByClassName("video-stream")[0].currentTime);
+}
   
   
   
