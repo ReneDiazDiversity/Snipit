@@ -1,5 +1,11 @@
 //https://github.com/chaosifier/TubeMark
 
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+    console.log("received " + msg.type);
+    localStorage["time"] = msg.time;
+});
+
+
 
 // A function to use as callback
 function doStuffWithDom(domContent) {
