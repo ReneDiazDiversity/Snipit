@@ -2,26 +2,28 @@
 
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
     console.log("received " + msg.type);
-    localStorage["time"] = msg.time;
+    localStorage["time"] = Math.round(msg.time);
+    localStorage["link"] = msg.url.replace('https://www.youtube.com/watch?v=','https://youtu.be/') + '?t=' + Math.round(msg.time);
 });
 
 
 
 // A function to use as callback
-function doStuffWithDom(domContent) {
-    console.log('I received the following DOM content:\n' + domContent);
-    localStorage["time"] = domContent;
-}
+    // function doStuffWithDom(domContent) {
+    // console.log('I received the following DOM content:\n' + domContent);
+    // localStorage["time"] = domContent.time;
+    // localStorage["link"] = domContent.url;
+    // }
 
 // When the browser-action button is clicked...
 
 
-chrome.commands.onCommand.addListener(function (command, tab) {
-    if (command === "save"){
-        //console.log(tab)
-        chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
-    }
-})
+// chrome.commands.onCommand.addListener(function (command, tab) {
+//     if (command === "save"){
+//         //console.log(tab)
+//         chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
+//     }
+// })
 
 
 

@@ -28,19 +28,37 @@ var newBtn = document.createElement("button");
 newBtn.className = "ytp-fullscreen-button ytp-button";
 newBtn.title = "collect";
 newBtn.append(buttonWrapper.firstChild);
-console.log(newBtn)
+console.log(window.location.href)
 newBtn.onclick = function() {
     chrome.runtime.sendMessage({
         type: 'timestamp',
-        time: performBookmarkIconClickAction()
+        time: performBookmarkIconClickAction(),
+        url: window.location.href
     },
         function (response) {
             performBookmarkIconClickAction()
+            initIFrame()
         });
 };
 document.getElementsByClassName("ytp-right-controls")[0].append(newBtn);
 
-function performBookmarkIconClickAction(  ) {
+function performBookmarkIconClickAction() {
+
     document.getElementsByClassName("video-stream")[0].pause();
     return document.getElementsByClassName("video-stream")[0].currentTime;
+}
+
+var iFrameInitializd = false;
+function initIFrame() {
+
+  var draggableWrapper = document.createElement("div");
+  var mainPageUrl = chrome.extension.getURL("selector.html");
+  draggableWrapper.innerHTML =
+    '<div id="draggableWrapper" style=" width:400px; height:300px; top:50vh; right:20px; position: absolute; z-index: 2147483648 !important;<div id="draggableWrapperHeader" </div><iframe style="border-radius: 10px" id="theIframe" src="' +
+    mainPageUrl +
+    '" style="width:100%; height:100%; display:unset;"/></div>';
+
+  document.body.append(draggableWrapper.firstChild);
+  iFrameInitializd = true;
+
 }
