@@ -1,9 +1,14 @@
 //https://github.com/chaosifier/TubeMark
 
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-    console.log("received " + msg.type);
+    
     localStorage["time"] = Math.round(msg.time);
     localStorage["link"] = msg.url.replace('https://www.youtube.com/watch?v=','https://youtu.be/') + '?t=' + Math.round(msg.time);
+    
+    var youtube_video_id = msg.url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+    var video_thumbnail = $('<img height=100px src="https://img.youtube.com/vi/'+youtube_video_id+'/0.jpg">');
+    localStorage["thumbnails"] = video_thumbnail[0].outerHTML;
+    console.log(video_thumbnail[0].outerHTML);
 });
 
 

@@ -20,5 +20,8 @@ body{
 .timestampend{
     margin: 20px;
 }
-
-
+.time{
+ position: absolute;
+ transform: translateY(-20px);
+ color: white;
+}
